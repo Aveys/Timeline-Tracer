@@ -1,0 +1,20 @@
+{
+  "name": "Timeline-Tracer",
+  "version": "0.0.1",
+  "description": "App that ingest your export of Gmaps locations and draw your path on a map",
+  "main": "main.js",
+  "repository": "https://github.com/Aveys/Timeline-Tracer.git",
+  "author": "Arthur Veys <veysarthur@gmail.com>",
+  "license": "GPL-3.0",
+  "private": false,
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "start": "yarn build && electron ./dist/electron-app.js"
+  },
+  "devDependencies": {
+    "electron": "^6.0.12",
+    "tslint": "^5.20.0"
+  }
+}
