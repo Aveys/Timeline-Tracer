@@ -1,20 +1,88 @@
 {
-  "name": "Timeline-Tracer",
-  "version": "0.0.1",
-  "description": "App that ingest your export of Gmaps locations and draw your path on a map",
-  "main": "main.js",
-  "repository": "https://github.com/Aveys/Timeline-Tracer.git",
-  "author": "Arthur Veys <veysarthur@gmail.com>",
-  "license": "GPL-3.0",
-  "private": false,
+  "name": "timeline-tracer",
+  "productName": "timeline-tracer",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": ".webpack/main",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "yarn build && electron ./dist/electron-app.js"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "keywords": [],
+  "author": {
+    "name": "Arthur Veys",
+    "email": "veysarthur@gmail.com"
+  },
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "timeline_tracer"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "plugins": [
+        [
+          "@electron-forge/plugin-webpack",
+          {
+            "mainConfig": "./webpack.main.config.js",
+            "renderer": {
+              "config": "./webpack.renderer.config.js",
+              "entryPoints": [
+                {
+                  "html": "./src/index.html",
+                  "js": "./src/app.tsx",
+                  "name": "main_window"
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  "dependencies": {
+    "@types/react": "^16.9.9",
+    "@types/react-dom": "^16.9.2",
+    "electron-squirrel-startup": "^1.0.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   },
   "devDependencies": {
-    "electron": "^6.0.12",
-    "tslint": "^5.20.0"
+    "@electron-forge/cli": "6.0.0-beta.45",
+    "@electron-forge/maker-deb": "6.0.0-beta.45",
+    "@electron-forge/maker-rpm": "6.0.0-beta.45",
+    "@electron-forge/maker-squirrel": "6.0.0-beta.45",
+    "@electron-forge/maker-zip": "6.0.0-beta.45",
+    "@electron-forge/plugin-webpack": "6.0.0-beta.45",
+    "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
+    "css-loader": "^3.0.0",
+    "electron": "6.0.12",
+    "fork-ts-checker-webpack-plugin": "^1.5.1",
+    "node-loader": "^0.6.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^6.2.0",
+    "typescript": "^3.6.4"
   }
 }
