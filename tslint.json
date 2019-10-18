@@ -1,5 +1,9 @@
 {
-    "extends": "tslint:recommended",
+    "extends": [
+      "tslint-xo/space",
+      "tslint-config-blvd/react", 
+      "tslint-config-prettier"
+    ],
     "rules": {
       "max-line-length": {
         "options": [

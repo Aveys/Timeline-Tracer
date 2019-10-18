@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "plugins": [{"name": "typescript-tslint-plugin"}],
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
+    "noImplicitAny": false,
+    "sourceMap": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,

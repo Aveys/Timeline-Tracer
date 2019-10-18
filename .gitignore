@@ -134,4 +134,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+.webpack
+
 # End of https://www.gitignore.io/api/node,windows,visualstudiocode
